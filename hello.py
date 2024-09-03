@@ -1,5 +1,5 @@
 # hello.py
-def CICD_project():
+def main():
     print("------Hello, world!------")
     print(">>Instruction completed<<")
     print(".------------------------")
@@ -12,4 +12,4 @@ def CICD_project():
     print('Hello, this is an updated message!')
 
 if __name__ == "__main__":
-    CICD_project()
+    main()
