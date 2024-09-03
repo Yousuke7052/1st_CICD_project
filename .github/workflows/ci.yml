@@ -1,0 +1,48 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main  # 触发条件：当代码被推送到main分支时
+      - development  # 触发条件：当代码被推送到development分支时
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # 使用最新的Ubuntu环境运行
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # 检出代码
+
+      - name: Setup Python
+        uses: actions/setup-python@v2  # 设置Python环境
+        with:
+          python-version: 3.x  # 选择Python版本
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # 安装依赖项
+          # 注意：你需要在项目根目录下有一个requirements.txt文件，列出所有依赖项
+
+      - name: Run tests
+        run: |
+          python -c "import hello; hello.main()"
+          # 这里运行你的测试脚本或验证脚本
+
+      - name: Build artifact
+        run: |
+          # 这里可以添加打包或其他构建步骤
+          echo "Building artifact..."
+          # 例如，你可以打包你的Python应用为可执行文件
+
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'  # 只有当代码在main分支时才部署
+        run: |
+          # 这里添加部署到生产环境的步骤
+          echo "Deploying to production..."
+          # 例如，你可以使用scp或其他方法将构建的包上传到服务器
+
+      - name: Deploy to staging
+        if: github.ref == 'refs/heads/development'  # 只有当代码在development分支时才部署
+        run: |
+          # 这里添加部署到测试环境的步骤
+          echo "Deploying to staging..."
+          # 例如，你可以使用scp或其他方法将构建的包上传到测试服务器
