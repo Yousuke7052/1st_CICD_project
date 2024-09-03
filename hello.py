@@ -9,7 +9,7 @@ def CICD_project():
     print("|  |  |  |               ")
     print("--------Building!--------")
     print("-------------------------")
-
+    print('Hello, this is an updated message!')
 
 if __name__ == "__main__":
     CICD_project()
