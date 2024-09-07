@@ -14,6 +14,7 @@ Practice CICD project by myself
     git config --global user.name "Your Name"
     git config --global user.email you@example.com
 1-3.初始化(在項目資料夾)
+    mkdir 1st_CICD_project
     cd 1st_CICD_project
     git init
     ls -a   # 確認.git存在
