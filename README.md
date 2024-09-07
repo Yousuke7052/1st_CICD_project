@@ -13,7 +13,8 @@ Practice CICD project by myself
 1-2.配置git:
     git config --global user.name "Your Name"
     git config --global user.email you@example.com
-1-3.初始化
+1-3.初始化(在項目資料夾)
+    cd 1st_CICD_project
     git init
     ls -a   # 確認.git存在
     ls -al ~/.ssh   # 確認是否有SSH密鑰
@@ -24,9 +25,8 @@ Practice CICD project by myself
     複製顯示的訊息到遠程倉庫創建SSH金鑰
 1-6.確保SSH連接
     ssh -T git@github.com   # 正常會在最後回覆Hi之類的訊息
-1-7.依據想在哪個資料夾部署，本例子中就部署在git文件夾；GitHub自己建好的倉庫中 有SSH連結
-    git clone "SSH連結"
-    cd 1st_CICD_project
+1-7.依據想在哪個資料夾部署，本例子中就部署在git文件夾；GitHub自己建好的倉庫中 有SSH連結(若是由本地倉庫建立再連結到遠程建立遠程倉庫，將跳過此步驟，本案例就是)
+    git clone "SSH連結"(clone方式是在git資料夾尚未init)
 1-8.創建一個新的分支並確認
     git checkout -b new-feature
     git branch
